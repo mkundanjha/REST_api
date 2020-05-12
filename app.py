@@ -100,6 +100,17 @@ def update_patient(id):
     db.session.commit()
     return patient_schema.jsonify(patient)
 
+#Delete patient
+@app.route('/patient/<id>',methods=['DELETE'])
+def delete_patient(id):
+    patient=Patient.query.get(id)
+    
+    db.session.delete(patient)
+    db.session.commit()
+
+    return patient_schema.jsonify(patient)
+    
+
 
 
 
