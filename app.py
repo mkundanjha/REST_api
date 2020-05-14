@@ -63,7 +63,7 @@ def add_patient():
     return patient_schema.jsonify(new_patient)
 
 #Get All Patients
-@app.route('/patient',methods=['GET'])
+@app.route('/patient/',methods=['GET'])
 def get_patients():
     all_products=Patient.query.all()
     result=patients_schema.dump(all_products)
